@@ -28,14 +28,15 @@ function custom_javascript_plugin() {
 
 //set a cookie to avoid showing the same warning again and again
 //the cookie will expire in 10 days
+$cookieName = 'newUser';
 setcookie(
-    'newUser',
+    $cookieName,
     'fading warning',
     time() + (10 * 86400 * 30),
     '/'
 );
 
-if (!isset($_COOKIE[$cookie_name])) {
+if (!isset($_COOKIE[$cookieName])) {
     //first time we see this, no cookie will be present, show the warning
 	add_action(
         'wp_enqueue_scripts',
